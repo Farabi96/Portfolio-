@@ -267,3 +267,62 @@ footer {
 .contact-info a:hover {
     text-decoration: underline;
 }
+.profile-image {
+    width: 200px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 0%;
+    border: 4px solid #a6aec0;
+    margin-bottom: 25px;
+}
+
+#home {
+    min-height: 90vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 60px;
+}
+
+.hero-content {
+    flex: 1;
+    max-width: 650px;
+}
+
+.hero-image {
+    flex: 0 0 400px;
+}
+
+.hero-image img {
+    width: 400px;
+    height: 500px;
+    object-fit: cover;
+    border-radius: 12px;
+    border: 4px solid #2563eb;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    #home {
+        flex-direction: column;
+        text-align: center;
+        padding-top: 60px;
+    }
+
+    .hero-content {
+        max-width: 100%;
+    }
+
+    .hero-buttons {
+        justify-content: center;
+    }
+
+    .hero-image {
+        flex: none;
+    }
+
+    .hero-image img {
+        width: 280px;
+        height: 350px;
+    }
+}
