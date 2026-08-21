@@ -48,8 +48,31 @@ nav a {
     font-weight: 500;
 }
 
+ nav a {
+    color: white;
+    text-decoration: none;
+    font-weight: 500;
+    position: relative;
+    transition: color 0.3s ease;
+}
+
+nav a::after {
+    content: "";
+    position: absolute;
+    width: 0;
+    height: 2px;
+    left: 0;
+    bottom: -6px;
+    background: #60a5fa;
+    transition: width 0.3s ease;
+}
+
 nav a:hover {
     color: #60a5fa;
+}
+
+nav a:hover::after {
+    width: 100%;
 }
 
 section {
@@ -171,4 +194,76 @@ footer {
     #home p {
         font-size: 17px;
     }
+}
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 20px;
+}
+
+.skill-card {
+    padding: 25px;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.skill-card h3 {
+    color: #2563eb;
+    margin-bottom: 10px;
+}
+
+.skill-card p {
+    color: #4b5563;
+}
+
+.projects-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.project-card {
+    padding: 30px;
+    background: #f8fafc;
+    border: 1px solid #e5e7eb;
+    border-radius: 10px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.project-card h3 {
+    color: #2563eb;
+    margin-bottom: 15px;
+}
+
+.project-card p {
+    color: #4b5563;
+    margin-bottom: 15px;
+}
+
+.contact-info {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.contact-info a {
+    color: #2563eb;
+    text-decoration: none;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
 }
