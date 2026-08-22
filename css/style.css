@@ -453,3 +453,195 @@ footer {
         font-size: 17px;
     }
 }
+/* UI/UX Upgrades for Cards and Typography */
+
+:root {
+    --primary-color: #1e40af; 
+    --hover-color: #2563eb;
+    --text-muted: #64748b;
+    --bg-card: #ffffff;
+}
+
+body {
+    background-color: #f1f5f9; 
+    color: #1e293b;
+}
+
+/* Typography Enhancements */
+h1, h2, h3 {
+    letter-spacing: -0.02em; 
+}
+
+/* Card Hover Effects */
+.skill-card, .project-card {
+    background: var(--bg-card);
+    border: none;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1); 
+}
+
+.skill-card:hover, .project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+/* Project Tech Tags */
+.tech-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 8px;
+    margin-top: 15px;
+}
+
+.tech-tags span {
+    background: #e0e7ff;
+    color: var(--primary-color);
+    font-size: 0.85rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 9999px; 
+    transition: background 0.2s ease;
+}
+
+.project-card:hover .tech-tags span {
+    background: var(--primary-color);
+    color: white;
+}
+
+/* Button Upgrades */
+.hero-buttons a {
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+    transition: all 0.3s ease;
+}
+
+.hero-buttons a:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+}
+/* --- Dark Mode Styles --- */
+
+/* Theme Toggle Button */
+.theme-toggle {
+    background: none;
+    border: none;
+    font-size: 22px;
+    cursor: pointer;
+    color: white;
+    margin-right: 15px;
+    transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover {
+    transform: scale(1.1);
+}
+
+/* Dark Theme Variables & Overrides */
+body.dark-mode {
+    background-color: #0f172a; /* Deep slate background */
+    color: #f8fafc;
+}
+
+body.dark-mode header,
+body.dark-mode footer,
+body.dark-mode nav ul.nav-links {
+    background: #020617; /* Even darker for the header/footer */
+}
+
+body.dark-mode section#about,
+body.dark-mode section#skills,
+body.dark-mode section#projects,
+body.dark-mode section#contact,
+body.dark-mode .skill-card, 
+body.dark-mode .project-card {
+    background: #1e293b; /* Dark card background */
+    border-color: #334155;
+}
+
+/* Adjust text colors for dark mode readability */
+body.dark-mode h1, 
+body.dark-mode h2, 
+body.dark-mode h3 {
+    color: #f8fafc;
+}
+        
+body.dark-mode p,
+body.dark-mode .hero-description,
+body.dark-mode .skill-card p,
+body.dark-mode .project-card p {
+    color: #cbd5e1; /* Soft gray for paragraph text */
+}
+
+body.dark-mode .tech-tags span {
+    background: #334155;
+    color: #60a5fa;
+}
+
+/* Mobile Nav adjustments for dark mode */
+@media screen and (max-width: 768px) {
+    .menu-toggle {
+        margin-left: 10px;
+    }
+}
+/* Fix for Hero text visibility in Dark Mode */
+body.dark-mode #home h1,
+body.dark-mode #home h2 {
+    color: #f8fafc; /* Bright white/gray */
+}
+
+body.dark-mode .hero-intro {
+    color: #60a5fa; /* A lighter, brighter blue for dark mode */
+}
+
+/* --- Navigation Fix --- */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.nav-links {
+    display: flex;
+    align-items: center;
+}
+
+.nav-controls {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+/* Make sure the hamburger is hidden on desktop */
+.menu-toggle {
+    display: none;
+}
+
+/* Mobile adjustments */
+@media screen and (max-width: 768px) {
+    /* Show hamburger menu */
+    .menu-toggle {
+        display: block !important;
+    }
+    
+    /* Hide links by default on mobile */
+    nav ul.nav-links {
+        display: none;
+        position: absolute;
+        top: 70px;
+        left: 0;
+        width: 100%;
+        background: #111827;
+        flex-direction: column;
+        padding: 20px 0;
+        z-index: 999;
+    }
+
+    /* Show links when hamburger is clicked */
+    nav ul.nav-links.active {
+        display: flex !important;
+    }
+    
+    /* Ensure mobile menu matches dark mode if active */
+    body.dark-mode nav ul.nav-links {
+        background: #020617; 
+    }
+}
