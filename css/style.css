@@ -649,8 +649,7 @@ body.dark-mode .hero-intro {
 
 
 
-
-/* --- Two Column Contact Layout --- */
+ /* --- Two Column Contact Layout --- */
 .contact-two-column-wrapper {
     display: flex;
     gap: 50px;
@@ -676,91 +675,18 @@ body.dark-mode .hero-intro {
     line-height: 1.5;
 }
 
-/* Form Container Styling */
-.contact-form-container {
-    background: var(--card-bg, #ffffff);
-    padding: 30px;
-    border-radius: 12px;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    border: 1px solid var(--border-color, #e2e8f0);
-}
-
-.form-group {
-    margin-bottom: 15px;
-}
-
-.portfolio-form input,
-.portfolio-form textarea {
-    width: 100%;
-    padding: 12px 15px;
-    border: 1px solid var(--border-color, #cbd5e1);
-    border-radius: 8px;
-    background: var(--input-bg, #f8fafc);
-    color: var(--text-color, #0f172a);
-    font-size: 15px;
-    font-family: inherit;
-    transition: border-color 0.3s ease;
-}
-
-.portfolio-form input:focus,
-.portfolio-form textarea:focus {
-    outline: none;
-    border-color: #3b82f6;
-}
-
-.portfolio-form button.btn {
-    width: 100%;
-    padding: 12px;
-    background: #3b82f6;
-    color: #ffffff;
-    font-weight: 600;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    transition: background 0.3s ease;
-}
-
-.portfolio-form button.btn:hover {
-    background: #2563eb;
-}
-
-/* Dark Mode Specific Overrides */
-body.dark-mode .contact-form-container,
-[data-theme="dark"] .contact-form-container {
-    background: #1f2937;
-    border-color: #374151;
-    box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
-}
-
-body.dark-mode .portfolio-form input,
-body.dark-mode .portfolio-form textarea,
-[data-theme="dark"] .portfolio-form input,
-[data-theme="dark"] .portfolio-form textarea {
-    background: #111827;
-    color: #f8fafc;
-    border-color: #374151;
-}
-
-/* Stack vertically on mobile screens */
-@media screen and (max-width: 768px) {
-    .contact-two-column-wrapper {
-        flex-direction: column;
-        gap: 40px;
-    }
-}
-
 /* --- Quick Message Trigger Card --- */
 .message-trigger-card {
     background: var(--card-bg, #ffffff);
     padding: 25px;
     border-radius: 12px;
-    border: 1px solid var(--border-color, #e2e8f0);
+    border: 1px solid #e2e8f0;
     box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
     text-align: center;
 }
 
 .message-trigger-card p {
-    color: var(--text-secondary, #64748b);
+    color: #64748b;
     margin-bottom: 15px;
     font-size: 14px;
 }
@@ -768,7 +694,7 @@ body.dark-mode .portfolio-form textarea,
 .message-trigger-card .btn {
     width: 100%;
     padding: 12px;
-    background: #3b82f6;
+    background: #2563eb;
     color: #ffffff;
     font-weight: 600;
     border: none;
@@ -778,7 +704,7 @@ body.dark-mode .portfolio-form textarea,
 }
 
 .message-trigger-card .btn:hover {
-    background: #2563eb;
+    background: #1d4ed8;
 }
 
 /* --- Popup Modal Overlay --- */
@@ -791,31 +717,31 @@ body.dark-mode .portfolio-form textarea,
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
     backdrop-filter: blur(4px);
-    z-index: 1000;
+    z-index: 9999;
     justify-content: center;
     align-items: center;
 }
 
 .modal-overlay.active {
-    display: flex; /* Shown when active class is added */
+    display: flex !important; /* Forces it to show when active */
 }
 
 .modal-content {
     position: relative;
     width: 90%;
     max-width: 500px;
-    background: var(--card-bg, #ffffff);
+    background: #ffffff;
     padding: 30px;
     border-radius: 16px;
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
-    border: 1px solid var(--border-color, #e2e8f0);
+    border: 1px solid #e2e8f0;
 }
 
 .modal-content h3 {
     margin-top: 0;
     margin-bottom: 20px;
     text-align: center;
-    color: var(--text-color, #0f172a);
+    color: #1e293b;
 }
 
 .close-modal {
@@ -826,18 +752,75 @@ body.dark-mode .portfolio-form textarea,
     border: none;
     font-size: 24px;
     cursor: pointer;
-    color: var(--text-secondary, #64748b);
+    color: #64748b;
 }
 
 .close-modal:hover {
     color: #ef4444;
 }
 
+/* Form Styles inside Modal */
+.modal-content .form-group {
+    margin-bottom: 15px;
+}
+
+.modal-content .portfolio-form input,
+.modal-content .portfolio-form textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #cbd5e1;
+    border-radius: 8px;
+    background: #f8fafc;
+    color: #1e293b;
+    font-size: 15px;
+    font-family: inherit;
+    transition: border-color 0.3s ease;
+}
+
+.modal-content .portfolio-form input:focus,
+.modal-content .portfolio-form textarea:focus {
+    outline: none;
+    border-color: #2563eb;
+}
+
+.modal-content .portfolio-form button.btn {
+    width: 100%;
+    padding: 12px;
+    background: #2563eb;
+    color: #ffffff;
+    font-weight: 600;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background 0.3s ease;
+}
+
+.modal-content .portfolio-form button.btn:hover {
+    background: #1d4ed8;
+}
+
 /* Dark Mode Overrides for Trigger Card & Modal */
 body.dark-mode .message-trigger-card,
-[data-theme="dark"] .message-trigger-card,
-body.dark-mode .modal-content,
-[data-theme="dark"] .modal-content {
-    background: #1f2937;
-    border-color: #374151;
+body.dark-mode .modal-content {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-mode .modal-content h3 {
+    color: #f8fafc;
+}
+
+body.dark-mode .modal-content .portfolio-form input,
+body.dark-mode .modal-content .portfolio-form textarea {
+    background: #0f172a;
+    color: #f8fafc;
+    border-color: #334155;
+}
+
+/* Responsive Stack on Mobile */
+@media screen and (max-width: 768px) {
+    .contact-two-column-wrapper {
+        flex-direction: column;
+        gap: 40px;
+    }
 }
