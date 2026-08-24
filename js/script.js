@@ -76,3 +76,72 @@ themeToggle.addEventListener('click', () => {
         themeToggle.textContent = '🌙';
     }
 });
+ 
+// --- Quick Message Modal & AJAX Form Submission ---
+const openFormBtn = document.getElementById('open-form-btn');
+const closeFormBtn = document.getElementById('close-form-btn');
+const messageModal = document.getElementById('message-modal');
+const messageForm = document.getElementById('quick-message-form');
+const successMsg = document.getElementById('form-success-msg');
+const submitBtn = document.getElementById('submit-btn');
+
+if (openFormBtn && closeFormBtn && messageModal && messageForm) {
+    // Open modal
+    openFormBtn.addEventListener('click', () => {
+        successMsg.style.display = 'none'; // Reset success message state
+        messageForm.style.display = 'block'; // Ensure form is visible
+        messageModal.classList.add('active');
+    });
+
+    // Close modal
+    closeFormBtn.addEventListener('click', () => {
+        messageModal.classList.remove('active');
+    });
+
+    // Close modal if clicking outside
+    messageModal.addEventListener('click', (e) => {
+        if (e.target === messageModal) {
+            messageModal.classList.remove('active');
+        }
+    });
+
+    // Handle background submission without page reload
+    messageForm.addEventListener('submit', function(e) {
+        e.preventDefault(); // Stop standard redirect submission
+        
+        submitBtn.textContent = 'Sending...';
+        submitBtn.disabled = true;
+
+        const formData = new FormData(messageForm);
+
+        fetch(messageForm.action, {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Success response from FormSubmit AJAX
+            messageForm.reset();
+            submitBtn.textContent = 'Send Message';
+            submitBtn.disabled = false;
+            
+            // Hide the form fields and show a clean success notification
+            messageForm.style.display = 'none';
+            successMsg.style.display = 'block';
+
+            // Automatically close the modal after 2.5 seconds
+            setTimeout(() => {
+                messageModal.classList.remove('active');
+                // Bring form back for next time
+                messageForm.style.display = 'block';
+                successMsg.style.display = 'none';
+            }, 2500);
+        })
+        .catch(error => {
+            console.error('Error:', error);
+            alert('Oops! Something went wrong. Please try again.');
+            submitBtn.textContent = 'Send Message';
+            submitBtn.disabled = false;
+        });
+    });
+}
