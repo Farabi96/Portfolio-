@@ -145,3 +145,21 @@ if (openFormBtn && closeFormBtn && messageModal && messageForm) {
         });
     });
 }
+
+// --- Completed Courses Section Toggle ---
+const toggleCoursesBtn = document.getElementById('toggle-courses-btn');
+const completedCoursesContent = document.getElementById('completed-courses-content');
+
+if (toggleCoursesBtn && completedCoursesContent) {
+    toggleCoursesBtn.addEventListener('click', () => {
+        completedCoursesContent.classList.toggle('show');
+        toggleCoursesBtn.classList.toggle('active');
+        
+        const btnSpan = toggleCoursesBtn.querySelector('span');
+        if (completedCoursesContent.classList.contains('show')) {
+            btnSpan.textContent = 'Hide Completed Courses & Projects';
+        } else {
+            btnSpan.textContent = 'View Completed Courses & Projects';
+        }
+    });
+}

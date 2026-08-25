@@ -824,3 +824,153 @@ body.dark-mode .modal-content .portfolio-form textarea {
         gap: 40px;
     }
 }
+
+/* --- Currently Working On Styles --- */
+.current-focus-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.focus-card {
+    background: var(--card-bg, #ffffff);
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.focus-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.focus-card h4 {
+    color: #2563eb;
+    margin-bottom: 10px;
+    font-size: 18px;
+}
+
+.focus-card p {
+    color: #4b5563;
+    font-size: 14px;
+    margin-bottom: 15px;
+}
+
+/* Dark Mode Support for Focus Card */
+body.dark-mode .focus-card {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-mode .focus-card p {
+    color: #cbd5e1;
+}
+/* --- Improved Toggle Button Styles --- */
+.modern-toggle-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    padding: 14px 28px;
+    background: #2563eb;
+    color: #ffffff;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-radius: 50px; /* Modern pill shape */
+    cursor: pointer;
+    box-shadow: 0 4px 6px -1px rgba(37, 99, 235, 0.2);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.modern-toggle-btn:hover {
+    background: #1d4ed8;
+    transform: translateY(-2px);
+    box-shadow: 0 10px 15px -3px rgba(37, 99, 235, 0.3);
+}
+
+.modern-toggle-btn .chevron-icon {
+    transition: transform 0.3s ease;
+}
+
+/* Rotate arrow when active */
+.modern-toggle-btn.active .chevron-icon {
+    transform: rotate(180deg);
+}
+
+/* --- Completed Courses Grid Layout Alignment --- */
+.completed-content-hidden {
+    display: none;
+    margin-top: 30px;
+    animation: fadeIn 0.4s ease-in-out;
+}
+
+.completed-content-hidden.show {
+    display: block;
+}
+
+.semester-list-wrapper {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 25px;
+}
+
+.semester-card {
+    background: var(--card-bg, #f8fafc);
+    padding: 25px;
+    border-radius: 10px;
+    border: 1px solid #e5e7eb;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.semester-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.semester-card h4 {
+    color: #2563eb;
+    margin-bottom: 12px;
+    font-size: 17px;
+    border-bottom: 2px solid #e2e8f0;
+    padding-bottom: 8px;
+}
+
+.semester-card ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.semester-card li {
+    font-size: 14px;
+    color: #4b5563;
+    margin-bottom: 8px;
+}
+
+.semester-card li em {
+    color: #2563eb;
+    font-weight: 600;
+}
+
+/* Dark Mode Support for Semester Cards */
+body.dark-mode .semester-card {
+    background: #1e293b;
+    border-color: #334155;
+}
+
+body.dark-mode .semester-card h4 {
+    border-bottom-color: #334155;
+    color: #60a5fa;
+}
+
+body.dark-mode .semester-card li {
+    color: #cbd5e1;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; transform: translateY(-10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
